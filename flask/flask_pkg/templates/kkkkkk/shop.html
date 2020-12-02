@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Shop</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/icofont/icofont.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/venobox/venobox.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Kelly - v2.0.0
+  * Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+
+      <h1 class="logo"><a href="{{ url_for('index')}}">Plants Medical Centre</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li><a href="{{ url_for('index')}}">Home</a></li>
+          <li><a href="{{ url_for('self_check')}}">Self-Check</a></li>
+          <li class="active"><a href="{{ url_for('shop')}}">Shop</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+
+
+    </div>
+
+  </header><!-- End Header -->
+
+  <main id="main">
+
+       <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Shop</h2>
+          <p>We are an online plant shop offering a wide range of cheap and trendy plants. Order your favorite things!</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">Flower Pot</li>
+              <li data-filter=".filter-plant">Plants</li>
+              <li data-filter=".filter-tool">Gardening tools</li>
+              <li data-filter=".filter-inte">Interior</li>
+            </ul>
+          </div>
+        </div>
+
+             <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="{{ url_for('static', filename='img/portfolio/Nut_pot.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Flower Pot</h4>
+                <p>Nut_pot</p>
+                <div class="portfolio-links">
+                  <a href="{{ url_for('static', filename='img/portfolio/Nut_pot.png') }}" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
+                  <a href="https://sprout-sprout.com/product/nut-pot/31/category/30/display/1/" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="{{ url_for('static', filename='img/portfolio/steelgray.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Flower Pot</h4>
+                <p>가드너스와이프 스틸그레이 절구M</p>
+                <div class="portfolio-links">
+                  <a href="{{ url_for('static', filename='img/portfolio/steelgray.png') }}" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
+                  <a href="https://smartstore.naver.com/signature-green/products/3447427084" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="{{ url_for('static', filename='img/portfolio/Pearl_wave_vase.jpg') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Flower Pot</h4>
+                <p>Pearl wave vase</p>
+                <div class="portfolio-links">
+                  <a href="{{ url_for('static', filename='img/portfolio/Pearl_wave_vase.jpg') }}" data-gall="portfolioGallery" class="venobox" title="Card 2"><i class="bx bx-plus"></i></a>
+                  <a href="https://sprout-sprout.com/product/pearl-wave-vase/87/category/60/display/1/" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="{{ url_for('static', filename='img/portfolio/SIGNATURE.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Flower Pot</h4>
+                <p>SIGNATURE</p>
+                <div class="portfolio-links">
+                  <a href="{{ url_for('static', filename='img/portfolio/SIGNATURE.png') }}" data-gall="portfolioGallery" class="venobox" title="App 2"><i class="bx bx-plus"></i></a>
+                  <a href="https://sprout-sprout.com/product/signature-a-l-3/38/category/30/display/1/" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="{{ url_for('static', filename='img/portfolio/gdwife.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Flower Pot</h4>
+                <p>가드너스 와이프 클레이 밴드</p>
+                <div class="portfolio-links">
+                  <a href="{{ url_for('static', filename='img/portfolio/gdwife.png') }}" data-gall="portfolioGallery" class="venobox" title="App 2"><i class="bx bx-plus"></i></a>
+                  <a href="https://smartstore.naver.com/signature-green/products/3447448941" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="{{ url_for('static', filename='img/portfolio/hanging.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Flower Pot</h4>
+                <p>가드너스와이프 샌드플레인 행잉 블렛</p>
+                <div class="portfolio-links">
+                  <a href="{{ url_for('static', filename='img/portfolio/hanging.png') }}" data-gall="portfolioGallery" class="venobox" title="App 2"><i class="bx bx-plus"></i></a>
+                  <a href="https://smartstore.naver.com/signature-green/products/4105734280" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+         <!--  전경환
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-6.jpg') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>App 3</h4>
+                <p>App</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox" title="App 3"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+         -->
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-plant">
+            <div class="portfolio-wrap">
+              <img src="{{ url_for('static', filename='img/portfolio/tilranarj.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Plant</h4>
+                <p>틸란시아 아르젠테아</p>
+                <div class="portfolio-links">
+                  <a href="{{ url_for('static', filename='img/portfolio/tilranarj.png') }}" data-gall="portfolioGallery" class="venobox" title="Card 1"><i class="bx bx-plus"></i></a>
+                  <a href="http://joinfolia.co.kr/product/%ED%8B%B8%EB%9E%80%EC%8B%9C%EC%95%84-%EC%95%84%EB%A5%B4%EC%A0%A0%ED%85%8C%EC%95%84/1504/category/147/display/1/" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-plant">
+            <div class="portfolio-wrap">
+              <img src="{{ url_for('static', filename='img/portfolio/pilroden.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Plant</h4>
+                <p>필로덴드론 플루토</p>
+                <div class="portfolio-links">
+                  <a href="{{ url_for('static', filename='img/portfolio/pilroden.png') }}" data-gall="portfolioGallery" class="venobox" title="Card 3"><i class="bx bx-plus"></i></a>
+                  <a href="http://www.joinfolia.co.kr/product/%ED%95%84%EB%A1%9C%EB%8D%B4%EB%93%9C%EB%A1%A0-%ED%94%8C%EB%A3%A8%ED%86%A0/1571/category/163/display/1/" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-plant">
+            <div class="portfolio-wrap">
+              <img src="{{ url_for('static', filename='img/portfolio/hoyapachi.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Plant</h4>
+                <p>호야 파치클라다</p>
+                <div class="portfolio-links">
+                  <a href="{{ url_for('static', filename='img/portfolio/hoyapachi.png') }}" data-gall="portfolioGallery" class="venobox" title="Card 3"><i class="bx bx-plus"></i></a>
+                  <a href="http://joinfolia.co.kr/product/%ED%98%B8%EC%95%BC-%ED%8C%8C%EC%B9%98%ED%81%B4%EB%9D%BC%EB%8B%A4/1335/category/160/display/1/" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-plant">
+            <div class="portfolio-wrap">
+              <img src="{{ url_for('static', filename='img/portfolio/hoya.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Plant</h4>
+                <p>호야 하와이</p>
+                <div class="portfolio-links">
+                  <a href="{{ url_for('static', filename='img/portfolio/hoya.png') }}" data-gall="portfolioGallery" class="venobox" title="Card 3"><i class="bx bx-plus"></i></a>
+                  <a href="http://joinfolia.co.kr/product/%ED%98%B8%EC%95%BC-%ED%95%98%EC%99%80%EC%9D%B4/1367/category/160/display/1/" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-plant">
+            <div class="portfolio-wrap">
+              <img src="{{ url_for('static', filename='img/portfolio/hoyaobo.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Plant</h4>
+                <p>호야 오보바타</p>
+                <div class="portfolio-links">
+                  <a href="{{ url_for('static', filename='img/portfolio/hoyaobo.png') }}" data-gall="portfolioGallery" class="venobox" title="Card 3"><i class="bx bx-plus"></i></a>
+                  <a href="http://joinfolia.co.kr/product/%ED%98%B8%EC%95%BC-%EC%98%A4%EB%B3%B4%EB%B0%94%ED%83%80/2238/category/160/display/1/" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-plant">
+            <div class="portfolio-wrap">
+              <img src="{{ url_for('static', filename='img/portfolio/olong.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Plant</h4>
+                <p>립살리스 오롱가</p>
+                <div class="portfolio-links">
+                  <a href="{{ url_for('static', filename='img/portfolio/olong.png') }}" data-gall="portfolioGallery" class="venobox" title="Card 3"><i class="bx bx-plus"></i></a>
+                  <a href="http://joinfolia.co.kr/product/%EB%A6%BD%EC%82%B4%EB%A6%AC%EC%8A%A4-%EC%98%A4%EB%A1%B1%EA%B0%80/1017/category/161/display/1/" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-tool">
+            <div class="portfolio-wrap">
+              <img src="{{ url_for('static', filename='img/portfolio/watertool.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Gardening Tool</h4>
+                <p>엘호 플런지 물조리개</p>
+                <div class="portfolio-links">
+                  <a href="{{ url_for('static', filename='img/portfolio/watertool.png') }}" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
+                  <a href="https://smartstore.naver.com/signature-green/products/2362005522" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-tool">
+            <div class="portfolio-wrap">
+              <img src="{{ url_for('static', filename='img/portfolio/plawater.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Gardening Tool</h4>
+                <p>엘호 브뤼셀 물조리개 물뿌리개</p>
+                <div class="portfolio-links">
+                  <a href="{{ url_for('static', filename='img/portfolio/plawater.png') }}" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
+                  <a href="https://smartstore.naver.com/signature-green/products/3601265070" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-tool">
+            <div class="portfolio-wrap">
+              <img src="{{ url_for('static', filename='img/portfolio/sab.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Gardening Tool</h4>
+                <p>엘호 분갈이 삽 small</p>
+                <div class="portfolio-links">
+                  <a href="{{ url_for('static', filename='img/portfolio/sab.png') }}" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
+                  <a href="https://smartstore.naver.com/signature-green/products/3430745529" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-tool">
+            <div class="portfolio-wrap">
+              <img src="{{ url_for('static', filename='img/portfolio/spray.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Gardening Tool</h4>
+                <p>엘호 비포소프트 스프레이 0.6L</p>
+                <div class="portfolio-links">
+                  <a href="{{ url_for('static', filename='img/portfolio/spray.png') }}" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
+                  <a href="https://smartstore.naver.com/signature-green/products/4646114557" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-tool">
+            <div class="portfolio-wrap">
+              <img src="{{ url_for('static', filename='img/portfolio/befores.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Gardening Tool</h4>
+                <p>엘호 비포소프트 물조리개</p>
+                <div class="portfolio-links">
+                  <a href="{{ url_for('static', filename='img/portfolio/befores.png') }}" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
+                  <a href="https://smartstore.naver.com/signature-green/products/4482076292" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-inte">
+            <div class="portfolio-wrap">
+              <img src="{{ url_for('static', filename='img/portfolio/double.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Interior</h4>
+                <p>더블유화병 W vase 도자기화병</p>
+                <div class="portfolio-links">
+                  <a href="{{ url_for('static', filename='img/portfolio/double.png') }}" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
+                  <a href="https://smartstore.naver.com/signature-green/products/4709765420" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-inte">
+            <div class="portfolio-wrap">
+              <img src="{{ url_for('static', filename='img/portfolio/green_cera.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Interior</h4>
+                <p>green ceramic vase</p>
+                <div class="portfolio-links">
+                  <a href="{{ url_for('static', filename='img/portfolio/green_cera.png') }}" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
+                  <a href="http://ours-shop.kr/product/green-ceramic-vase/426/category/95/display/1/" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-inte">
+            <div class="portfolio-wrap">
+              <img src="{{ url_for('static', filename='img/portfolio/ovje.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Interior</h4>
+                <p>포도나무 장식 오브제</p>
+                <div class="portfolio-links">
+                  <a href="{{ url_for('static', filename='img/portfolio/ovje.png') }}" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
+                  <a href="http://ours-shop.kr/product/%ED%8F%AC%EB%8F%84%EB%82%98%EB%AC%B4-%EC%9E%A5%EC%8B%9D-%EC%98%A4%EB%B8%8C%EC%A0%9C-%EC%83%81%EC%8B%9C%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8/1149/category/95/display/1/" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-inte">
+            <div class="portfolio-wrap">
+              <img src="{{ url_for('static', filename='img/portfolio/seramic.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Interior</h4>
+                <p>프레즐 샌드화이트 세라믹화병</p>
+                <div class="portfolio-links">
+                  <a href="{{ url_for('static', filename='img/portfolio/seramic.png') }}" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
+                  <a href="http://ours-shop.kr/product/%ED%94%84%EB%A0%88%EC%A6%90-%EC%83%8C%EB%93%9C%ED%99%94%EC%9D%B4%ED%8A%B8-%EC%84%B8%EB%9D%BC%EB%AF%B9%ED%99%94%EB%B3%91/664/category/95/display/1/" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-inte">
+            <div class="portfolio-wrap">
+              <img src="{{ url_for('static', filename='img/portfolio/indest.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Interior</h4>
+                <p>Antique Ceramics Jar #02 인더스트리얼 화병</p>
+                <div class="portfolio-links">
+                  <a href="{{ url_for('static', filename='img/portfolio/indest.png') }}" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
+                  <a href="http://ours-shop.kr/product/antique-ceramics-jar-02-%EC%9D%B8%EB%8D%94%EC%8A%A4%ED%8A%B8%EB%A6%AC%EC%96%BC-%ED%99%94%EB%B3%91/1129/category/95/display/1/" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-inte">
+            <div class="portfolio-wrap">
+              <img src="{{ url_for('static', filename='img/portfolio/stopper.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Interior</h4>
+                <p>'꽃을 말리는 새로운 방법'flower stopper</p>
+                <div class="portfolio-links">
+                  <a href="{{ url_for('static', filename='img/portfolio/stopper.png') }}" data-gall="portfolioGallery" class="venobox" title="꽃을 말리는 새로운 방법'flower stopper"><i class="bx bx-plus"></i></a>
+                  <a href="http://omegg.cafe24.com/product/flower-stopper/18/category/24/display/1/" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Kelly</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/jquery.easing/jquery.easing.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/waypoints/jquery.waypoints.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/counterup/counterup.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/owl.carousel/owl.carousel.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/venobox/venobox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+
+</html>

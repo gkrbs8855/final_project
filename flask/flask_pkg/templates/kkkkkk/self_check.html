@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Plants self check service</title>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="/static/img/favicon.png" rel="icon">
+    <link href="/static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="/static/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/static/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="/static/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="/static/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: Kelly - v2.0.0
+    * Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+         $('.image-upload-wrap').hide();
+         $('.file-upload-image').hide();
+        $('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
+        $('#grid').click(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
+         $('#Progress_Loading').hide();
+    });
+     $(function(){
+          $(document).ajaxStart(function () {
+             $('#Progress_Loading').show(); //ajax실행시 로딩바를 보여준다.
+          })
+          $(document).ajaxStop(function(){
+             $('#Progress_Loading').hide();
+
+          })
+       });
+    var image=null
+    $(document).ready(function(){
+        /* $("#id").click(function(){
+
+        }); */
+    });
+
+    function model_predict() {
+       var form = $('#uploadForm')[0];
+        var formData = new FormData(form);
+
+       $.ajax({
+                  url: 'http://127.0.0.1:9999/predict',
+                  processData: false,
+                  contentType: false,
+                  data: formData,
+                  type: 'POST',
+                  success: function(data){
+                       var test="";
+
+<!--                       document.getElementById("plant_name").innerHTML =data.plant_name;-->
+                       document.getElementById("disease_name").innerHTML= data.disease_name;
+                       document.getElementById("cause").innerHTML=data.cause;
+                       document.getElementById("symptom").innerHTML=data.symptom;
+                       document.getElementById("care").innerHTML=data.care;
+
+                  }
+          });
+    }
+
+    function readURL(input) {
+          if (input.files && input.files[0]) {
+
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+              $('.image-upload-wrap').hide();
+              $('.file-upload-image').show();
+
+              $('.file-upload-image').attr('src', e.target.result);
+              $('.file-upload-content').show();
+
+              $('.image-title').html(input.files[0].name);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+              model_predict()
+
+          } else {
+            removeUpload();
+          }
+        }
+
+        function removeUpload() {
+          $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+          $('.file-upload-content').hide();
+          $('.image-upload-wrap').show();
+        }
+        $('.image-upload-wrap').bind('dragover', function () {
+                $('.image-upload-wrap').addClass('image-dropping');
+            });
+            $('.image-upload-wrap').bind('dragleave', function () {
+                $('.image-upload-wrap').removeClass('image-dropping');
+        });
+
+
+
+
+
+
+
+    </script>
+
+
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header class="fixed-top" id="header">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+
+        <h1 class="logo"><a href="/index">Plants Medical Centre</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+                <li><a href="/index">Home</a></li>
+                <li class="active"><a href="/self_check">Self-Check</a></li>
+                <li><a href="/shop">Shop</a></li>
+            </ul>
+        </nav><!-- .nav-menu -->
+
+
+    </div>
+
+</header><!-- End Header -->
+
+<main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section class="about" id="about">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Plants self-check service</h2>
+                <p>Plants Medical Centre is easy to use. Just upload picture of
+                    a leaf infested and the AI system of the website will detect the
+                    disease. This website is not to identify plant disease or to find
+                    treatment of the disease.</p>
+                <br><br><br><br>
+
+                <div align="center">
+
+
+                    <div class="col-lg-20">
+                        <div class="file-upload">
+
+                            <button class="file-upload-btn" onclick="$('.file-upload-input').trigger( 'click' )"
+                                    type="button" style="color: #fff; background:#34b7a7; font-size:30px; border-radius:20px; border: none;">Upload
+                            </button>
+
+
+                            <div class="image-upload-wrap">
+                                <form id="uploadForm">
+                                    <input accept="image/*" class="file-upload-input" id="FILE_TAG" name="file"
+                                           onchange="readURL(this);" type='file'/>
+                                </form>
+
+                            </div>
+                            <div height="60" src="#" width="60"></div>
+                            <div class="file-upload-content">
+                                <img alt="your image" class="file-upload-image" height="600" src="#" width="600" style="vertical-align:middle;margin:50px 0px"/>
+                                <div class="image-title-wrap">
+                                    <!--                                  <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--                  <img src="assets/img/about.jpg" class="img-fluid" alt="">-->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-40">
+                    <div id="Progress_Loading" style="width: 100px; height: 100px;">
+                        <!-- 로딩바 -->
+                        <img src="static/Progress_Loading.gif"/>
+                    </div>
+                    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="section-title">
+            <h2>RESULTS</h2>
+            <div class="testimonial-item">
+                <div style="color: #34b7a7;">
+                    <p style="font-size: 25px;">
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i> <b>NAME</b>
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                </div>
+                <br>
+                <p id="disease_name" style=" font: 20px Georgia, Courier New ;">plant name</p>
+                <br>
+                <br>
+                <br>
+
+            </div>
+            <div class="testimonial-item">
+                <div style="color: #34b7a7;">
+                    <p style="font-size: 25px;">
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i> <b>CAUSE</b>
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                </div>
+                <br>
+                <p id="cause" style=" font:  20px Georgia, Courier New ;">cause of disease
+                </p>
+                <br>
+                <br>
+                <br>
+            </div>
+            <div class="testimonial-item">
+                <div style="color: #34b7a7;">
+                    <p style="font-size: 25px;">
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i> <b>SYMPTOM</b>
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                </div>
+                <br>
+                <p id="symptom" style=" font: 20px Georgia, Courier New ;">symptom of disease
+                </p>
+                <br>
+                <br>
+                <br>
+            </div>
+            <div class="testimonial-item">
+                <div style="color: #34b7a7;">
+                    <p style="font-size: 25px;">
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i> <b>CARE</b>
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                </div>
+                <br>
+                <p id="care" style=" font: 20px Georgia, Courier New ;">care of disease
+                </p>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+    </section>
+    <!-- End About Section -->
+
+    <!-- ======= Skills Section ======= -->
+    <section class="skills" id="skills">
+
+        <div class="container" data-aos="fade-up">
+<!--            <div class="row">--><!--전경환 주석처리20201123 -->
+
+<!--                <img alt="" class="monstera-img" height="400" src="/static/img/mos1.jpg"-->
+<!--                     width="380">-->
+<!--                <img alt="" height="400" src="/static/img/mos2.jpg" width="380">-->
+<!--                <img alt="" height="400" src="/static/img/mos3.jpg" width="380">-->
+
+<!--            </div>-->
+            <div class="container" data-aos="fade-up"><!--전경환추가20201123 -->
+            <div class="row">
+
+                <!--<img alt="" class="testimonial-img" height="400" src="/static/img/frwfpjfvoaizscd8lpd1.jpg"
+                     width="380">-->
+                <img alt="" height="400" src="/static/img/mos2.jpg" width="370">
+                <img alt="" height="400" src="/static/img/mos1.jpg" width="370">
+                <img alt="" height="400" src="/static/img/mos3.jpg" width="370">
+
+            </div>
+            <br><br><br><br>
+
+            <div class="section-title">
+                <h2>Details</h2>
+
+                <div style="color:#34b7a7;">
+                    <p style="font-size : 20px;"><b>feature</b></p>
+                </div>
+                <div class="col-lg-40">
+                    <h3>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</h3>
+                </div>
+                <p style="font-size : 15px;">[ 생김새 ]<br>
+                    몬스테라는 천남성과 식물로 고향인 멕시코에서 6m이상까지 크게 자라는 식물이에요. 길고 시원하게 뻗은 줄기와 이쁘게 갈라진 잎이 특징인 몬스테라는 잎의 양쪽으로 구멍이 있어 '필로덴드론 셀로움'과 구분이 되요. </p>
+                <div class="col-lg-10">
+                    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                </div>
+                <p style="font-size : 15px;">[ 키우는 팁 ]<br>
+                     따듯하고 습한 환경을 좋아해요. 식물이 다 성장한 후 잎이 이쁘게 갈라지므로, 인내심을 갖고 클 때까지 기다려주세요. </p>
+                <div class="col-lg-10">
+                    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                </div>
+                <p style="font-size : 15px;">
+                    [ 활용 ]<br>
+                    큰 잎을 가지고 있어서 실내 습도를 올려주는데 좋아서 인테리어용으로 카페나 레스토랑에서 많이 볼 수 있는 식물이에요.
+
+                </p>
+
+                <div class="col-lg-10">
+                    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                </div>
+
+                <div style="color:#34b7a7;">
+                    <p style="font-size : 20px;"><b>LIGHTING</b></p>
+                </div>
+                <p style="font-size : 15px;">
+                    <br>햇빛은 식물이 살아가는데 있어서 꼭 필요한 요소에요~ 몬스테라 델리시오사는 밝은 그늘을 좋아하는 반음지 식물이랍니다 :) 몬스테라 델리시오사라는 실내의 경우 거실, 사무실이 좋아요.
+                    <br><br><br>[실내 햇빛양 측정 tip]<br>아파트의 경우, 베란다 > 거실 > 부엌 > 화장실 순으로 햇빛 양이 풍부해요 :)
+                </p>
+                <div class="col-lg-10">
+                    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                </div>
+                <div style="color:#34b7a7;">
+                    <p style="font-size : 20px;"><b>TEMPERATURE</b></p>
+                </div>
+                <p style="font-size : 15px;">
+                    <br>21 ~ 25℃ - 실내 온도에서 무난하게 잘 자라요. 추위에는 약하니 주의해주세요.
+                </p>
+                <div class="col-lg-10">
+                    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                </div>
+                <div style="color:#34b7a7;">
+                    <p style="font-size : 20px;"><b>NUTRIENT</b></p>
+                </div>
+                <p style="font-size : 15px;">
+                    <br>봄,여름에 2번정도 시중에 파는 완효성 비료를 소량 흙과 함께 섞어 주세요.비료를 살때 포장에 적혀있는 N-P-K 비율을 확인하시고, 앞자리 숫자가 높은 비료로 선택
+                    해주세요.
+                </p>
+                <div class="col-lg-10">
+                    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                </div>
+                <div style="color:#34b7a7;">
+                    <p style="font-size : 20px;"><b>WATER</b></p>
+                </div>
+                <p style="font-size : 15px;">
+                    <br>몬스테라는 수경재배도 될 만큼 물을 좋아하는 식물이에요, 햇빛이 잘 드는 베란다에서는 주 2회, 3~5일에 한 번씩 주세요. <br>
+                    빗물을 주게되면 토양이 산성화 될 수도 있어요, 정수를 이용하거나 물을 받아놓고 다음 날 주세요.
+                    <br><br>물주기는 날씨, 온도, 습도에 따라 변화하기 때문에 물 주는 주기와 양은 정해져 있지 않아요.
+식물의 건강을 생각한다면 식물이 물을 필요로 할 때 주는게 좋아요.
+                    <br><br>
+                    [물주는 시기 알아보는 tip]<br>
+                    나무젓가락, 손가락으로 찔러봤을 때<br>
+                    * 흙이 묻어 나오고 촉촉하다면 -> 아직 물을 줄 때가 아니에요. <br>
+                    * 흙이 묻어 나오지만 흙이 젖어있지 않으면 -> 물을 주세요. <br>
+                    * 흙이 묻어 나오지 않으면 ->  어서 빨리 물을 주세요.
+                </p>
+                <div class="col-lg-10">
+                    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                </div>
+
+                <div style="color:#34b7a7;">
+                    <p style="font-size : 20px;"><b>HUMIDITY</b></p>
+                </div>
+                <p style="font-size : 15px;">
+                    <br>70% 이상 - 여름의 습한 장마철을 좋아해요. 나머지 계절에는 가끔 분무기로 물을 뿌려주시면 좋아요.
+                    <br>
+                     <br>
+                     <br>
+                     <br>
+                    <br>
+
+
+                </p>
+
+
+            </div>
+
+            <div class="row skills-content">
+
+                <div class="col-lg-6">
+
+                    <div class="progress">
+                        <span class="skill">lighting <i class="val">90%</i></span>
+                        <div class="progress-bar-wrap">
+                            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="90" class="progress-bar"
+                                 role="progressbar"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress">
+                        <span class="skill">temperature <i class="val">80%</i></span>
+                        <div class="progress-bar-wrap">
+                            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" class="progress-bar"
+                                 role="progressbar"></div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="col-lg-6">
+
+                    <div class="progress">
+                        <span class="skill">humidity<i class="val">75%</i></span>
+                        <div class="progress-bar-wrap">
+                            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="75" class="progress-bar"
+                                 role="progressbar"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress">
+                        <span class="skill">water <i class="val">85%</i></span>
+                        <div class="progress-bar-wrap">
+                            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="85" class="progress-bar"
+                                 role="progressbar"></div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <p style="font-size : 15px;">
+                <br>50%~70% : 난이도 중<br>70% ~ : 난이도 상
+
+            </p>
+
+        </div>
+    </section><!-- End Skills Section -->
+
+    <!-- ======= Facts Section ======= -->
+
+    <!-- End Facts Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section class="testimonials" id="testimonials">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>For Monstera</h2>
+                <p></p>
+            </div>
+
+            <div class="owl-carousel testimonials-carousel">
+
+                <div class="testimonial-item"> <!--전경환 추가-->
+                    <img alt="" class="testimonial-img" src="/static/img/frwfpjfvoaizscd8lpd1.jpg">
+                    <h3>Fork</h3>
+                    <h4>Fork</h4>
+                    <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        We love garden tools, each made from stainless steel with a wooden handle and a leather hanging strap for easy storage.
+                        They make getting your hands dirty in the garden seem somehow very sophisticated.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                </div>
+
+                <div class="testimonial-item">
+                    <br><br>
+                    <img alt="" class="testimonial-img" src="/static/img/gnx2tsrgv7udobfsoxzs.jpg">
+                    <h3>Compost scoop</h3>
+                    <h4>Compost scoop</h4>
+                    <div class="col-lg-10">
+                        <!--<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>-->
+                    </div>
+                    <p> <!--style="font-size : 30px;"> -->
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        <!--<b>식물영양제 앰플영양제 원예화분비료 하이트그린10개입</b>-->
+                        Keep your hands clean when repotting with this neat scoop, made from 100% recycled plastic. Features an ergonomic handle to make it highly drop-resistant.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                    <!--<h4>1,980원</h4>-->
+                </div>
+
+                <div class="testimonial-item">
+                    <img alt="" class="testimonial-img" src="/static/img/plant-stand-09555d.jpg">
+                    <h3>Wooden Plant Stand</h3>
+                    <h4>Wooden Plant Stand</h4>
+                    <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Plant stands were extremely popular in Victorian times. They turned plants into a focal feature, as they deserve to be.
+                        We thought it was time they made a comeback, so we created these elegant modern versions from hard-wearing acacia wood.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                </div>
+
+                <div class="testimonial-item">
+                    <img alt="" class="testimonial-img" src="/static/img/wzz5hemqnadnf4mtkagp.jpg">
+                    <h3>Drip and Feed</h3>
+                    <h4>Drip and Feed</h4>
+                    <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Make feeding your plants even easier with these natty little drip and feed gizmos.
+                        All you have to do is remove the top of the tube, push it into your plant’s soil and it will release fertiliser gradually over four weeks.
+                        Use one per month throughout spring and summer.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                </div>
+
+                <div class="testimonial-item">
+                    <img alt="" class="testimonial-img" src="/static/img/xs8ht2wofuvfh4gfokc7.jpg">
+                    <h3>Plant Mister</h3>
+                    <h4>Plant Mister</h4>
+                    <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                       This 0.7L plant mister is great to help indoor plants retain moisture in dry conditions and is perfect for our humidity loving houseplants such as Bertie.
+                        Just follow your plant's care instructions for how often to spritz!
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                </div>
+
+                <div class="testimonial-item">
+                    <img alt="" class="testimonial-img" src="/static/img/jujeon.jpg">
+                    <h3>Watering can</h3>
+                    <h4>Watering can</h4>
+                    <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        This simple plastic watering can beautifully mixes style with function.
+                        A narrow spout means you can accurately water your plants just where they need it.
+                        Made by Elho using waste material, it's 100% recyclable.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Testimonials Section -->
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="container">
+        <div class="copyright">
+
+        </div>
+        <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/ -->
+            Designed by <a href="https://bootstrapmade.com/">뚜효닝</a>
+        </div>
+    </div>
+</footer><!-- End  Footer -->
+
+
+<div id="preloader"></div>
+
+<a class="back-to-top" href="#"><i class="bx bx-up-arrow-alt"></i></a>
+<!-- Vendor JS Files -->
+<script src="/static/vendor/jquery/jquery.min.js"></script>
+<script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/static/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="/static/vendor/php-email-form/validate.js"></script>
+<script src="/static/vendor/waypoints/jquery.waypoints.min.js"></script>
+<script src="/static/vendor/counterup/counterup.min.js"></script>
+<script src="/static/vendor/owl.carousel/owl.carousel.min.js"></script>
+<script src="/static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="/static/vendor/venobox/venobox.min.js"></script>
+<script src="/static/vendor/aos/aos.js"></script>
+
+<!-- Template Main JS File -->
+<script src="/static/js/main.js"></script>
+
+
+</body>
+
+</html>
